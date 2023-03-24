@@ -1,4 +1,4 @@
-# circle_intervals
+# Circle intervals
 
 ## The model and explaniations
 
