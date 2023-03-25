@@ -21,7 +21,7 @@ impl Interval {
 
     // Check if an interval is the entire circle
     fn is_full(&self) -> bool {
-        self.1 == u128::MAX - self.0
+        (self.0 == 0 && self.1 == u128::MAX) || (self.1 == 0 && self.0 == u128::MAX)
     }
 
     // Check if an interval is a proper interval (i.e., not empty or the entire circle)
@@ -127,7 +127,7 @@ mod tests {
             (Interval(5, 5), Interval(25, 35)),
             (Interval(40, 50), Interval(60, 70)),
         ];
-        let expected = vec![Some(Interval(0, 30)), None, None];
+        let expected = vec![None, Some(Interval(25, 35)), None];
         assert_eq!(union_list(intervals), expected);
     }
 
